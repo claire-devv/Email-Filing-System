@@ -51,3 +51,4 @@ npm run build    # production build -> frontend/dist
   `VITE_API_BASE_URL` to the backend URL and add the Pages domain to the backend's
   `CORS_ORIGINS`.
 # Email-Filing-System
+# Email-Filing-System
