@@ -1,0 +1,42 @@
+{
+  "version": "2026-06-08.phase1",
+  "source": "RRES client Google Sheet structure, represented locally for Phase 1",
+  "drive_root": {
+    "name": "RRES - Books",
+    "type": "shared_drive_or_root_folder"
+  },
+  "review": {
+    "folder_name": "Needs Review",
+    "purpose": "Operational review queue for uncertain automation decisions. This is not a client Level 2 folder."
+  },
+  "level_1": {
+    "name": "Client - Entity Folder",
+    "creation_rule": "Created after a new entity is approved.",
+    "format": "First initial. Last name - Entity Name",
+    "example": "J. Doe - 123 Street LLC"
+  },
+  "level_2_folders": [
+    {"name": "Ask Client - Closed", "subfolder_rule": "none"},
+    {"name": "Backup Reports", "subfolder_rule": "none"},
+    {"name": "Bank Statements", "subfolder_rule": "by_bank"},
+    {"name": "Client Reporting", "subfolder_rule": "by_year"},
+    {"name": "Client Uploads", "subfolder_rule": "none"},
+    {"name": "Communications", "subfolder_rule": "none"},
+    {"name": "Credit Card Statements", "subfolder_rule": "by_credit_card"},
+    {"name": "Equity", "subfolder_rule": "none"},
+    {"name": "Insurance", "subfolder_rule": "none"},
+    {"name": "Leases", "subfolder_rule": "none"},
+    {"name": "Loan Documents", "subfolder_rule": "by_lender"},
+    {"name": "Misc.", "subfolder_rule": "none"},
+    {"name": "Property Manager Statements", "subfolder_rule": "none"},
+    {"name": "Property Taxes", "subfolder_rule": "none"},
+    {"name": "Receipts / Supporting Documents", "subfolder_rule": "by_year"},
+    {"name": "Settlement Statements", "subfolder_rule": "none"},
+    {"name": "Setup Documents", "subfolder_rule": "none"},
+    {"name": "Tax Documents", "subfolder_rule": "by_year"}
+  ],
+  "level_4_file_naming": {
+    "format": "YYYY.MM.DD - Summary of document including any property or entity reference.pdf",
+    "example": "2026.04.29 - State Farm Insurance Declarations for 123 Street Property.pdf"
+  }
+}

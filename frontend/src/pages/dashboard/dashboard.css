@@ -1,0 +1,1165 @@
+/* ==========================================================================
+   Dashboard layout + section styles
+   Shared primitives (buttons, fields, badges, tables…) live in index.css.
+   ========================================================================== */
+
+.dashboard-layout {
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  margin-left: 260px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-content {
+    padding: var(--space-4);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Overview
+   -------------------------------------------------------------------------- */
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.integration-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.integration-banner .section-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+/* Brand-colored top accent per card. */
+.stat-card--today {
+  border-top: 3px solid var(--navy);
+}
+
+.stat-card--filed {
+  border-top: 3px solid var(--success);
+}
+
+.stat-card--review {
+  border-top: 3px solid var(--orange);
+}
+
+.stat-card--errors {
+  border-top: 3px solid var(--danger);
+}
+
+button.stat-card {
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+button.stat-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Stat cards inside a section card sit on the section's white surface */
+.section-content .stat-card {
+  background: var(--surface-2);
+  box-shadow: none;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-3);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.stat-value--accent {
+  color: var(--accent);
+}
+
+.stat-value--danger {
+  color: var(--danger);
+}
+
+/* --------------------------------------------------------------------------
+   Section card
+   -------------------------------------------------------------------------- */
+
+.dashboard-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.section-desc {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--text-3);
+  align-self: center;
+}
+
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.section-content {
+  padding: var(--space-6);
+}
+
+.subsection-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.subsection-title:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+
+  .section-header,
+  .section-content {
+    padding: var(--space-4);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Data lists
+   -------------------------------------------------------------------------- */
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.data-item {
+  padding: var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  min-width: 0;
+}
+
+.data-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.data-item-title {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 13.5px;
+  overflow-wrap: anywhere;
+}
+
+.data-item-meta {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+
+.data-item-sub {
+  margin-top: var(--space-2);
+  font-size: 12.5px;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.entity-search {
+  display: block;
+  max-width: 420px;
+  margin-bottom: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Review queue
+   -------------------------------------------------------------------------- */
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.review-card {
+  padding: var(--space-5);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.review-card--urgent {
+  border-color: #fecdca;
+  background: #fffbfa;
+}
+
+.review-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.review-card-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.review-card-meta {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+.review-card-reason {
+  margin-bottom: var(--space-4);
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+
+.review-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.review-card .section-error {
+  margin-top: var(--space-4);
+}
+
+.review-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+}
+
+.review-reject {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+  align-items: center;
+}
+
+.review-reject .form-control {
+  width: 220px;
+}
+
+@media (max-width: 768px) {
+  .review-form {
+    grid-template-columns: 1fr;
+  }
+
+  .review-reject {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .review-reject .form-control {
+    flex: 1;
+    width: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Multi-entity split (per-attachment routing)
+   -------------------------------------------------------------------------- */
+
+.split-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+}
+
+.split-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.split-banner-entities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.split-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.split-hint {
+  font-size: 13px;
+  color: var(--text-3);
+  margin: 0;
+}
+
+/* Note about signature/logo images excluded from the split rows. */
+.split-hint--decorative {
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+.split-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.split-row-file {
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.split-row-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.split-date {
+  max-width: 260px;
+}
+
+.split-entity-badge {
+  margin-left: var(--space-2);
+  vertical-align: middle;
+  font-size: 0.7rem;
+}
+
+/* "Upload" provenance label — a quiet third line under the row's timestamp (same place in both
+   Activity and Needs Review). Styled to MATCH the existing secondary time line (.col-time-sub /
+   .cell-subtime): same muted grey, same size, no pill/uppercase/color — so it blends in as plain
+   metadata rather than standing out. Only ever shown for uploads (email = default = nothing). */
+.source-tag {
+  /* inline-block so the dotted underline hugs the text, not the whole column width */
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+  /* dotted underline reads as an annotation, not a clickable link */
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.field-hint {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+/* Inline "New entity" form on the Entities page. */
+.entity-create-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.entity-create-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .split-row-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .split-banner {
+    align-items: flex-start;
+  }
+
+  .split-date {
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Admin
+   -------------------------------------------------------------------------- */
+
+.admin-nav {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-6) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-nav-btn {
+  padding: var(--space-2) var(--space-4) var(--space-3);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--text-3);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-nav-btn:hover {
+  color: var(--text);
+}
+
+.admin-nav-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.response-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+.response-box pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text-2);
+}
+
+@media (max-width: 640px) {
+  .admin-nav {
+    padding: var(--space-2) var(--space-4) 0;
+    overflow-x: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Review detail (table → detail)
+   -------------------------------------------------------------------------- */
+
+.review-detail-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.review-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Labeled card identifying the email: From / Received / Attachments. */
+.review-email-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.review-email-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+
+.review-email-row .detail-label {
+  margin-bottom: 0;
+}
+
+.review-sender {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.review-sender-address {
+  color: var(--text-3);
+}
+
+.review-sender strong {
+  color: var(--text);
+}
+
+.review-sender-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* One-line body snippet under the subject in the review list. */
+.row-snippet {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--text-3);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* Secondary time line under the date in the Needs Review list. */
+.cell-subtime {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+/* Folder skip picker in Settings -> Integrations -> Drive. */
+.folder-skip-list {
+  list-style: none;
+  margin: var(--space-3) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.folder-skip-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+}
+
+.folder-skip-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+
+/* Keep long attachment filenames from stretching the Files column. */
+.data-table td.col-files {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Needs Review: narrow the From column (sender name, ellipsised) so the
+   Subject column absorbs the freed space. */
+.data-table .col-sender {
+  width: 150px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.files-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.files-cell span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .review-email-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+.suggestion-banner {
+  padding: var(--space-4);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+}
+
+.suggestion-line {
+  font-size: 13.5px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.suggestion-reason {
+  margin-top: var(--space-2);
+  font-size: 13px;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.checkbox-field input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Needs Review summary chips (between header and the table) */
+.summary-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-6) 0;
+}
+
+.summary-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 104px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.summary-chip-value {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.summary-chip-label {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.summary-chip--warn .summary-chip-value {
+  color: var(--warn);
+}
+
+.summary-chip--danger .summary-chip-value {
+  color: var(--danger);
+}
+
+/* "Why this needs review" — plain-language card; full reasoning behind a toggle */
+.why-block {
+  padding: var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.why-head {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-3);
+  margin-bottom: var(--space-2);
+}
+
+.why-list {
+  margin: 0 0 var(--space-2) var(--space-5);
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+
+.why-list li {
+  margin: 2px 0;
+}
+
+.why-match {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.link-btn {
+  margin-top: var(--space-2);
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .summary-chips {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Settings + search
+   -------------------------------------------------------------------------- */
+
+.settings-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.settings-row-title {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.settings-row-desc {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-3);
+  max-width: 60ch;
+}
+
+.stats-grid--inline {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* --------------------------------------------------------------------------
+   Users panel (Settings -> Users)
+   -------------------------------------------------------------------------- */
+
+/* Row actions wrap onto multiple lines instead of overflowing the cell —
+   .section-actions is nowrap by design for header contexts, so this table
+   uses its own class rather than inheriting that behavior. */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.user-reset-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.user-reset-input {
+  flex: 1 1 160px;
+  width: auto;
+  min-width: 0;
+}
+
+/* Below ~860px the 4-column grid has no room left for the actions column —
+   stack each user as a card instead of a horizontally-scrolling grid row. */
+@media (max-width: 860px) {
+
+  .users-table.table,
+  .users-table .table-header,
+  .users-table .table-row {
+    display: block;
+  }
+
+  .users-table .table-header {
+    display: none;
+  }
+
+  .users-table .table-row {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .users-table .table-cell {
+    padding: var(--space-1) 0;
+  }
+
+  .users-table .table-cell:before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--text-3);
+    margin-bottom: 2px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PDF preview modal
+   -------------------------------------------------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(16, 24, 40, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+
+.modal-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(960px, 100%);
+  max-height: 92vh;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(16, 24, 40, 0.3);
+  overflow: hidden;
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-title {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--surface-2);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.modal-pdf-page canvas {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.08);
+  max-width: 100%;
+  height: auto !important;
+}
+
+.modal-message {
+  padding: var(--space-10);
+  color: var(--text-3);
+  font-size: 13.5px;
+}
+
+.modal-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--border);
+}
+
+.modal-pages {
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: var(--space-2);
+  }
+
+  .modal-panel {
+    max-height: 96vh;
+  }
+}
+
+/* Activity detail — list of files filed for this email. */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.file-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 13px;
+}
+
+.file-line-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-2);
+}
+
+/* --------------------------------------------------------------------------
+   Documents
+   -------------------------------------------------------------------------- */
+
+/* Documents rows are not expandable — keep the default cursor. */
+.data-table-row--static {
+  cursor: default;
+}
+
+.col-doc-actions {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.doc-actions {
+  display: flex;
+  gap: var(--space-1);
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.doc-badge {
+  margin-left: var(--space-2);
+}
+
+/* Fixed layout so the Document column can't be squeezed into a vertical
+   letter-stack by the Actions/Folder/Entity columns. */
+.documents-table {
+  table-layout: fixed;
+}
+
+.documents-table .col-time {
+  width: 90px;
+}
+
+.documents-table .col-entity {
+  width: 18%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.documents-table .col-folder {
+  width: 16%;
+  white-space: normal;
+}
+
+.documents-table .col-num {
+  width: 70px;
+}
+
+.documents-table .col-doc-actions {
+  width: 132px;
+}
+
+/* Single-line ellipsis truncation — kills the overflow-wrap: anywhere
+   vertical-stacking on long filenames and folder paths. */
+.cell-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Second line under the filename: sender — subject. */
+.doc-sub {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* Large filed documents take a few seconds to fetch from Drive before their new tab opens —
+   spin the icon while that's in flight so the button doesn't look frozen. */
+.icon-spin {
+  animation: icon-spin 0.9s linear infinite;
+}
+
+@keyframes icon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 700px) {
+
+  .documents-table .col-folder,
+  .documents-table .col-num {
+    display: none;
+  }
+}
+
+.input-search {
+  width: 260px;
+  max-width: 100%;
+}

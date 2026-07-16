@@ -1,0 +1,68 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/credentials/*
+!**/credentials/.gitkeep
+*.pem
+*.key
+*.p12
+*.p8
+
+# Local runtime data
+runtime/
+logs/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated artifacts and downloaded files
+artifacts/
+downloads/
+inbox_queue/
+filing_jobs/
+classification_requests/
+classification_responses/
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.zip
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build and cache
+build/
+dist/
+*.egg-info/
+.cache/
+
+# Frontend (Node / Vite)
+node_modules/
+*.local
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local tool state
+.claude/
+.codex/

@@ -1,0 +1,22 @@
+anthropic>=0.52.0
+alembic>=1.16.0
+beautifulsoup4>=4.12.3
+fastapi>=0.115.0
+google-api-python-client>=2.170.0
+google-auth>=2.40.0
+google-auth-oauthlib>=1.2.2
+img2pdf>=0.6.0
+pdfminer.six>=20250506
+pillow>=11.2.0
+pydantic>=2.11.0
+pydantic-settings>=2.9.0
+PyJWT>=2.8.0
+python-dotenv>=1.0.1
+pypdf>=5.5.0
+python-magic-bin>=0.4.14; platform_system == "Windows"
+python-multipart>=0.0.20
+reportlab>=4.0
+sqlalchemy>=2.0.40
+tzdata>=2025.1
+uvicorn[standard]>=0.34.0
+weasyprint>=69.0
